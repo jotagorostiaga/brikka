@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Llombai — Brikka Hunting</title>
+  <link rel="icon" type="image/png" href="../img/favicon.png" />
+  <link rel="apple-touch-icon" href="../img/favicon.png" />
+  <title>Castellón Centro — Brikka Hunting</title>
   <meta name="description" content="Reforma de inmueble en localización rural valenciana, actualmente en fase de estudio de viabilidad. Proyecto centrado en respetar el carácter rural del entorno " />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -187,11 +189,12 @@
       margin-bottom: 1.5rem;
     }
     .proj-hero__desc {
-      max-width: 720px;
-      font-size: clamp(1rem, 1.3vw, 1.125rem);
-      color: var(--ink-soft);
+      max-width: 820px;
+      font-size: clamp(1.375rem, 2.3vw, 1.875rem);
+      color: var(--ink);
       margin-bottom: 3rem;
-      line-height: 1.65;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
     }
 
     .proj-hero__media {
@@ -591,6 +594,20 @@
       .reveal { opacity: 1; transform: none; transition: none; }
     }
 
+    /* Language switcher (floating, bottom-right) */
+    .lang-switch { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 300; display: inline-flex; font-family: var(--font-mono); }
+    .lang-switch__trigger { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--bone); color: var(--ink); border: 1px solid rgba(10,10,10,0.12); border-radius: 9999px; cursor: pointer; font: inherit; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.55rem 0.85rem; box-shadow: 0 8px 24px rgba(10,10,10,0.14); transition: transform 0.18s ease, box-shadow 0.2s ease; }
+    .lang-switch__trigger:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(10,10,10,0.18); }
+    .lang-switch__globe { width: 14px; height: 14px; flex: none; }
+    .lang-switch__chev { width: 11px; height: 11px; flex: none; transition: transform 0.25s ease; }
+    .lang-switch[data-open="true"] .lang-switch__chev { transform: rotate(180deg); }
+    .lang-switch__menu { position: absolute; bottom: calc(100% + 0.5rem); right: 0; top: auto; min-width: 10rem; background: var(--bone); color: var(--ink); border: 1px solid rgba(10,10,10,0.1); border-radius: 12px; box-shadow: 0 14px 34px rgba(10,10,10,0.16); padding: 0.35rem; display: flex; flex-direction: column; gap: 0.1rem; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; }
+    .lang-switch[data-open="true"] .lang-switch__menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .lang-switch__menu button { text-align: left; background: none; border: 0; cursor: pointer; font-family: var(--font); font-size: 0.875rem; letter-spacing: -0.01em; color: var(--ink); padding: 0.55rem 0.7rem; border-radius: 8px; transition: background 0.15s ease; }
+    .lang-switch__menu button:hover { background: rgba(10,10,10,0.06); }
+    .lang-switch__menu button.is-active { font-weight: 600; background: rgba(10,10,10,0.06); }
+    @media (max-width: 600px) { .lang-switch { right: 1rem; bottom: 1rem; } }
+
     /* ---- Responsive image/overflow hardening ---- */
     html, body { overflow-x: hidden; }
     img, svg, video { max-width: 100%; }
@@ -602,9 +619,9 @@
   <!-- Inline brand logo SVG sprite -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
-      <symbol id="brikka-logo" viewBox="0 0 1433 379">
-        <path d="M17.6183 165.479V9.36682H92.5519C119.76 9.36682 137.378 25.424 137.378 48.1717C137.378 66.0131 127.12 79.3941 106.602 84.3004V85.1925C129.127 89.2068 141.17 103.257 141.17 122.882C141.17 148.083 122.213 165.479 94.5591 165.479H17.6183ZM96.1202 148.975C111.731 148.975 122.659 137.155 122.659 120.875C122.659 103.48 109.055 94.3362 92.3289 94.3362H36.1287V148.975H96.1202ZM91.2138 77.6099C107.94 77.6099 119.091 66.4591 119.091 50.6249C119.091 36.3518 108.609 25.8701 93.667 25.8701H36.1287V77.6099H91.2138ZM165.212 165.479V47.2797H181.715L183.499 66.2361H183.945C189.744 52.186 200.894 46.6106 213.16 46.6106H224.98V65.344H212.937C193.758 65.344 183.722 75.8258 183.722 94.7822V165.479H165.212ZM242.745 165.479V47.2797H261.255V165.479H242.745ZM252.112 29.6613C243.637 29.6613 237.17 23.1939 237.17 14.7192C237.17 6.24459 243.637 0.000119656 252.112 0.000119656C260.586 0.000119656 266.831 6.24459 266.831 14.7192C266.831 23.1939 260.586 29.6613 252.112 29.6613ZM291.53 165.479V0.446161H310.04V109.278L368.917 47.2797H392.11L349.514 90.3219L398.578 165.479H376.945L337.025 103.034L310.04 130.242V165.479H291.53ZM411.532 165.479V0.446161H430.042V109.278L488.919 47.2797H512.113L469.516 90.3219L518.58 165.479H496.947L457.027 103.034L430.042 130.242V165.479H411.532ZM564.541 167.263C539.117 167.263 524.844 153.882 524.844 132.249C524.844 113.516 536.441 99.9116 558.296 96.5664L588.403 92.106C599.777 90.3219 605.13 86.9766 605.13 78.279C605.13 67.1282 595.763 59.9916 578.591 59.9916C560.08 59.9916 550.937 67.5742 547.145 80.0631H528.189C532.649 58.6535 552.944 44.6035 578.368 44.6035C608.029 44.6035 623.64 57.9845 623.64 81.8472V138.94C623.64 148.083 627.431 151.205 635.237 151.205H641.927V165.479H630.554C615.388 165.479 607.36 157.896 606.914 144.069H606.022C599.777 158.788 584.389 167.263 564.541 167.263ZM567.886 151.874C591.972 151.874 605.576 136.04 605.576 112.178V96.7894C602.007 103.48 597.101 106.602 588.626 107.94L561.641 112.178C549.599 114.185 543.8 122.213 543.8 131.803C543.8 144.738 552.721 151.874 567.886 151.874ZM711.714 165.479V9.36682H730.448V76.4949H820.1V9.36682H838.834V165.479H820.1V93.6671H730.448V165.479H711.714ZM908.354 167.932C883.153 167.932 867.988 151.428 867.988 125.782V47.2797H886.498V122.659C886.498 140.947 895.419 151.651 913.706 151.651C933.109 151.651 945.821 136.263 945.821 113.962V47.2797H964.331V165.479H947.828L946.267 145.407C938.684 160.126 925.526 167.932 908.354 167.932ZM993.684 165.479V47.2797H1010.19L1011.97 67.3512C1020.22 53.0781 1034.5 44.6035 1051.22 44.6035C1074.86 44.6035 1090.03 61.1067 1090.03 86.7536V165.479H1071.52V89.8759C1071.52 71.5885 1063.04 60.8837 1045.87 60.8837C1026.24 60.8837 1012.19 76.4949 1012.19 99.2426V165.479H993.684ZM1151.85 165.479C1136.01 165.479 1126.2 156.335 1126.2 141.393V62.8908H1102.12V47.2797H1126.2V9.36682H1144.71V47.2797H1176.6V62.8908H1144.71V139.386C1144.71 146.299 1148.5 150.09 1155.42 150.09H1176.6V165.479H1151.85ZM54.1931 352.393V312.25H11.5969V296.639H54.1931V256.496H70.6963V296.639H112.846V312.25H70.6963V352.393H54.1931ZM231.988 376.479V237.539H178.018V220.367H304.691V237.539H250.721V376.479H231.988ZM351.722 378.932C316.931 378.932 294.852 353.508 294.852 318.717C294.852 282.142 319.384 255.603 351.722 255.603C386.066 255.603 406.138 280.135 405.469 320.501H313.363C314.701 346.371 328.974 362.874 351.722 362.874C368.671 362.874 381.16 354.177 386.066 339.235H403.016C397.663 362.874 377.146 378.932 351.722 378.932ZM314.478 305.336H386.735C383.613 283.927 371.347 271.438 351.722 271.438C332.542 271.438 318.269 284.596 314.478 305.336ZM427.866 376.479V258.28H444.369L446.154 277.236H446.6C452.398 263.186 463.549 257.611 475.815 257.611H487.635V276.344H475.592C456.412 276.344 446.377 286.826 446.377 305.782V376.479H427.866ZM505.399 376.479V258.28H521.903L523.687 277.236H524.133C529.931 263.186 541.082 257.611 553.348 257.611H565.168V276.344H553.125C533.946 276.344 523.91 286.826 523.91 305.782V376.479H505.399ZM607.663 378.263C582.239 378.263 567.966 364.882 567.966 343.249C567.966 324.516 579.563 310.912 601.419 307.566L631.526 303.106C642.9 301.322 648.252 297.977 648.252 289.279C648.252 278.128 638.885 270.992 621.713 270.992C603.203 270.992 594.059 278.574 590.268 291.063H571.311C575.772 269.654 596.066 255.603 621.49 255.603C651.151 255.603 666.762 268.984 666.762 292.847V349.94C666.762 359.083 670.554 362.205 678.359 362.205H685.05V376.479H673.676C658.511 376.479 650.482 368.896 650.036 355.069H649.144C642.9 369.788 627.511 378.263 607.663 378.263ZM611.008 362.874C635.094 362.874 648.698 347.04 648.698 323.178V307.789C645.13 314.48 640.223 317.602 631.749 318.94L604.764 323.178C592.721 325.185 586.922 333.213 586.922 342.803C586.922 355.738 595.843 362.874 611.008 362.874ZM754.837 376.479V220.367H773.57L860.1 346.594V220.367H878.834V376.479H860.1L773.57 251.143V376.479H754.837ZM959.993 378.932C926.763 378.932 903.793 353.508 903.793 316.71C903.793 280.581 926.763 255.603 959.993 255.603C993.222 255.603 1016.19 280.581 1016.19 316.71C1016.19 353.508 993.222 378.932 959.993 378.932ZM959.993 362.874C983.187 362.874 997.237 345.479 997.237 316.71C997.237 288.61 983.187 271.661 959.993 271.661C936.799 271.661 922.749 288.61 922.749 316.71C922.749 345.479 936.799 362.874 959.993 362.874ZM1082.66 378.932C1050.54 378.932 1032.7 365.997 1031.59 341.911H1050.77C1051.88 356.184 1063.48 363.098 1081.77 363.098C1099.16 363.098 1108.31 355.515 1108.31 342.803C1108.31 335.666 1103.85 330.314 1094.03 328.307L1063.93 322.062C1044.75 318.271 1034.49 308.012 1034.49 291.509C1034.49 272.107 1050.99 255.603 1078.2 255.603C1104.96 255.603 1123.02 269.43 1125.92 292.401H1106.97C1105.18 279.689 1094.03 271.438 1077.98 271.438C1061.92 271.438 1053 279.243 1053 289.948C1053 298.646 1059.02 303.106 1069.5 305.336L1098.27 311.135C1118.12 315.149 1126.82 325.631 1126.82 341.911C1126.82 364.213 1108.97 378.932 1082.66 378.932ZM1185.39 376.479C1169.55 376.479 1159.74 367.335 1159.74 352.393V273.891H1135.66V258.28H1159.74V220.367H1178.25V258.28H1210.14V273.891H1178.25V350.386C1178.25 357.299 1182.04 361.09 1188.96 361.09H1210.14V376.479H1185.39ZM1230.86 376.479V258.28H1247.36L1249.14 277.236H1249.59C1255.39 263.186 1266.54 257.611 1278.81 257.611H1290.63V276.344H1278.58C1259.4 276.344 1249.37 286.826 1249.37 305.782V376.479H1230.86ZM1333.12 378.263C1307.7 378.263 1293.42 364.882 1293.42 343.249C1293.42 324.516 1305.02 310.912 1326.88 307.566L1356.98 303.106C1368.36 301.322 1373.71 297.977 1373.71 289.279C1373.71 278.128 1364.34 270.992 1347.17 270.992C1328.66 270.992 1319.52 278.574 1315.73 291.063H1296.77C1301.23 269.654 1321.52 255.603 1346.95 255.603C1376.61 255.603 1392.22 268.984 1392.22 292.847V349.94C1392.22 359.083 1396.01 362.205 1403.82 362.205H1410.51V376.479H1399.13C1383.97 376.479 1375.94 368.896 1375.49 355.069H1374.6C1368.36 369.788 1352.97 378.263 1333.12 378.263ZM1336.47 362.874C1360.55 362.874 1374.16 347.04 1374.16 323.178V307.789C1370.59 314.48 1365.68 317.602 1357.21 318.94L1330.22 323.178C1318.18 325.185 1312.38 333.213 1312.38 342.803C1312.38 355.738 1321.3 362.874 1336.47 362.874Z" fill="currentColor"/>
-        <path d="M1412.8 253.394C1403.09 253.394 1396.11 246.416 1396.11 236.708C1396.11 227.076 1403.09 220.098 1412.8 220.098C1422.43 220.098 1429.33 227.076 1429.33 236.708C1429.33 246.416 1422.43 253.394 1412.8 253.394ZM1412.8 250.284C1420.68 250.284 1426.07 244.748 1425.92 236.708C1426.07 228.744 1420.68 223.208 1412.8 223.208C1404.76 223.208 1399.37 228.744 1399.52 236.708C1399.37 244.748 1404.76 250.284 1412.8 250.284ZM1405.67 245.809V227.607H1414.92C1417.95 227.607 1420.23 229.73 1420.23 232.537C1420.23 235.039 1418.86 236.708 1416.13 237.315V237.466C1418.03 237.846 1418.41 238.756 1418.79 239.666L1421.21 245.809H1417.95L1415.75 239.969C1415.37 239.059 1414.99 238.68 1413.48 238.68H1408.7V245.809H1405.67ZM1413.71 236.101C1415.83 236.101 1417.19 234.812 1417.19 232.992C1417.19 231.399 1415.98 230.185 1414.01 230.185H1408.7V236.101H1413.71Z" fill="currentColor"/>
+      <symbol id="brikka-logo" viewBox="0 0 1433 370">
+        <path d="M62.8907 156.112V17.1724H8.92067V0.000120591H135.594V17.1724H81.6241V156.112H62.8907ZM185.611 158.565C150.597 158.565 127.404 132.918 127.404 97.4584C127.404 57.0924 153.496 35.2368 183.381 35.2368C217.725 35.2368 238.243 59.7686 237.574 100.135H145.914C147.029 125.336 161.748 142.508 185.611 142.508C203.452 142.508 214.603 134.256 219.509 118.868H237.128C231.998 142.954 211.927 158.565 185.611 158.565ZM147.029 84.7465H218.394C215.049 63.1138 202.783 51.071 183.381 51.071C164.647 51.071 150.82 63.5599 147.029 84.7465ZM261.921 156.112V37.913H278.424L280.208 56.8694H280.654C286.453 42.8193 297.604 37.2439 309.869 37.2439H321.689V55.9773H309.646C290.467 55.9773 280.431 66.4591 280.431 85.4155V156.112H261.921ZM342.939 156.112V37.913H359.442L361.226 56.8694H361.672C367.471 42.8193 378.621 37.2439 390.887 37.2439H402.707V55.9773H390.664C371.485 55.9773 361.449 66.4591 361.449 85.4155V156.112H342.939ZM456.128 157.896C430.481 157.896 414.424 144.961 414.424 123.551C414.424 104.149 426.913 92.329 450.107 89.6528L481.106 85.8616C492.48 84.5235 497.832 79.1711 497.832 70.4734C497.832 59.7686 488.466 50.6249 468.84 51.071C450.107 51.517 437.395 60.6607 435.388 74.7107H417.1C419.331 51.517 440.294 35.2368 469.732 35.2368C499.617 35.2368 516.343 50.8479 516.343 73.5956V129.573C516.343 138.717 520.134 141.393 527.94 141.393H530.393V156.112H523.256C508.091 156.112 500.063 148.529 499.617 134.702H499.171C492.926 149.421 477.538 157.896 456.128 157.896ZM460.812 142.062C484.005 142.062 498.279 127.12 498.279 105.041V90.5449C495.602 97.0124 488.689 100.804 479.099 101.919L451.222 105.487C439.848 107.048 433.381 113.293 433.381 122.882C433.381 134.925 443.416 142.062 460.812 142.062ZM604.157 156.112V0.000120591H622.891L709.421 126.228V0.000120591H728.155V156.112H709.421L622.891 30.7764V156.112H604.157ZM814.147 158.565C779.802 158.565 756.162 133.141 756.162 95.8973C756.162 59.9916 779.802 35.2368 814.147 35.2368C848.491 35.2368 872.131 59.9916 872.131 95.8973C872.131 133.141 848.491 158.565 814.147 158.565ZM814.147 142.508C837.341 142.508 853.175 123.551 853.175 95.8973C853.175 69.3583 837.341 51.294 814.147 51.294C790.953 51.294 775.119 69.3583 775.119 95.8973C775.119 123.551 790.953 142.508 814.147 142.508ZM942.284 158.565C910.169 158.565 891.882 145.63 890.098 121.544H909.277C911.285 135.371 922.658 142.731 941.392 142.731C959.01 142.731 969.046 135.594 969.046 122.659C969.046 115.3 964.139 109.947 954.104 107.94L923.104 101.696C903.256 97.6814 892.997 87.1997 892.997 71.1425C892.997 51.74 909.723 35.2368 936.262 35.2368C961.686 35.2368 979.528 49.2868 982.427 72.0345H963.47C961.686 59.5456 950.535 51.071 936.485 51.071C921.097 51.071 911.731 58.8765 911.731 69.5813C911.731 78.056 917.529 82.7393 928.903 84.9695L958.341 90.7679C978.636 94.7822 987.556 105.041 987.556 121.767C987.556 143.623 969.046 158.565 942.284 158.565ZM1057.08 156.112C1034.11 156.112 1021.84 144.292 1021.84 122.436V53.5241H997.757V37.913H1021.84V0.000120591H1040.35V37.913H1072.25V53.5241H1040.35V122.436C1040.35 134.256 1046.15 140.724 1057.08 140.724H1072.25V156.112H1057.08ZM1094.1 156.112V37.913H1110.6L1112.38 56.8694H1112.83C1118.63 42.8193 1129.78 37.2439 1142.04 37.2439H1153.86V55.9773H1141.82C1122.64 55.9773 1112.61 66.4591 1112.61 85.4155V156.112H1094.1ZM1207.29 157.896C1181.64 157.896 1165.58 144.961 1165.58 123.551C1165.58 104.149 1178.07 92.329 1201.26 89.6528L1232.26 85.8616C1243.64 84.5235 1248.99 79.1711 1248.99 70.4734C1248.99 59.7686 1239.62 50.6249 1220 51.071C1201.26 51.517 1188.55 60.6607 1186.54 74.7107H1168.26C1170.49 51.517 1191.45 35.2368 1220.89 35.2368C1250.77 35.2368 1267.5 50.8479 1267.5 73.5956V129.573C1267.5 138.717 1271.29 141.393 1279.1 141.393H1281.55V156.112H1274.41C1259.25 156.112 1251.22 148.529 1250.77 134.702H1250.33C1244.08 149.421 1228.69 157.896 1207.29 157.896ZM1211.97 142.062C1235.16 142.062 1249.44 127.12 1249.44 105.041V90.5449C1246.76 97.0124 1239.85 100.804 1230.26 101.919L1202.38 105.487C1191 107.048 1184.54 113.293 1184.54 122.882C1184.54 134.925 1194.57 142.062 1211.97 142.062ZM52.6319 343.026V302.883H10.0358V287.272H52.6319V247.129H69.1352V287.272H111.285V302.883H69.1352V343.026H52.6319ZM190.357 367.112V211H265.291C292.499 211 310.117 227.057 310.117 249.805C310.117 267.646 299.858 281.027 279.341 285.934V286.826C301.865 290.84 313.908 304.89 313.908 324.516C313.908 349.717 294.952 367.112 267.298 367.112H190.357ZM268.859 350.609C284.47 350.609 295.398 338.789 295.398 322.508C295.398 305.113 281.794 295.969 265.068 295.969H208.867V350.609H268.859ZM263.952 279.243C280.679 279.243 291.83 268.092 291.83 252.258C291.83 237.985 281.348 227.503 266.406 227.503H208.867V279.243H263.952ZM338.583 367.112V248.913H355.086L356.87 267.869H357.316C363.115 253.819 374.266 248.244 386.531 248.244H398.351V266.977H386.308C367.129 266.977 357.093 277.459 357.093 296.416V367.112H338.583ZM419.601 367.112V248.913H438.111V367.112H419.601ZM428.967 231.295C420.493 231.295 414.025 224.827 414.025 216.353C414.025 207.878 420.493 201.633 428.967 201.633C437.442 201.633 443.686 207.878 443.686 216.353C443.686 224.827 437.442 231.295 428.967 231.295ZM469.055 367.112V202.079H487.565V310.912L546.441 248.913H569.635L527.039 291.955L576.103 367.112H554.47L514.55 304.667L487.565 331.875V367.112H469.055ZM593.63 367.112V202.079H612.141V310.912L671.017 248.913H694.211L651.615 291.955L700.678 367.112H679.046L639.126 304.667L612.141 331.875V367.112H593.63ZM752.105 368.896C726.458 368.896 710.4 355.961 710.4 334.551C710.4 315.149 722.889 303.329 746.083 300.653L777.082 296.862C788.456 295.523 793.809 290.171 793.809 281.473C793.809 270.769 784.442 261.625 764.817 262.071C746.083 262.517 733.371 271.661 731.364 285.711H713.077C715.307 262.517 736.27 246.237 765.709 246.237C795.593 246.237 812.319 261.848 812.319 284.596V340.573C812.319 349.717 816.11 352.393 823.916 352.393H826.369V367.112H819.233C804.068 367.112 796.039 359.529 795.593 345.702H795.147C788.902 360.421 773.514 368.896 752.105 368.896ZM756.788 353.062C779.982 353.062 794.255 338.12 794.255 316.041V301.545C791.579 308.012 784.665 311.804 775.075 312.919L747.198 316.487C735.824 318.048 729.357 324.293 729.357 333.882C729.357 345.925 739.393 353.062 756.788 353.062ZM900.134 367.112V211H918.867V278.128H1008.52V211H1027.25V367.112H1008.52V295.3H918.867V367.112H900.134ZM1102.02 369.565C1075.7 369.565 1060.09 353.062 1060.09 327.415V248.913H1078.6V324.293C1078.6 342.58 1088.19 353.285 1107.37 353.285C1127.66 353.285 1141.49 337.897 1141.49 315.595V248.913H1160V367.112H1143.5L1141.71 347.04C1134.13 361.536 1120.3 369.565 1102.02 369.565ZM1190.36 367.112V248.913H1206.86L1208.65 268.984C1216.9 254.711 1231.62 246.237 1248.79 246.237C1273.77 246.237 1290.27 262.74 1290.27 288.387V367.112H1271.76V291.509C1271.76 273.222 1262.17 262.517 1243.66 262.517C1223.14 262.517 1208.87 278.128 1208.87 300.876V367.112H1190.36ZM1366.12 367.112C1343.15 367.112 1330.89 355.292 1330.89 333.436V264.524H1306.8V248.913H1330.89V211H1349.4V248.913H1381.29V264.524H1349.4V333.436C1349.4 345.256 1355.2 351.724 1366.12 351.724H1381.29V367.112H1366.12Z" fill="currentColor"/>
+        <path d="M1412.8 244.027C1403.09 244.027 1396.11 237.049 1396.11 227.341C1396.11 217.709 1403.09 210.731 1412.8 210.731C1422.43 210.731 1429.33 217.709 1429.33 227.341C1429.33 237.049 1422.43 244.027 1412.8 244.027ZM1412.8 240.917C1420.68 240.917 1426.07 235.381 1425.92 227.341C1426.07 219.378 1420.68 213.841 1412.8 213.841C1404.76 213.841 1399.37 219.378 1399.52 227.341C1399.37 235.381 1404.76 240.917 1412.8 240.917ZM1405.67 236.443V218.24H1414.92C1417.95 218.24 1420.23 220.364 1420.23 223.17C1420.23 225.673 1418.86 227.341 1416.13 227.948V228.1C1418.03 228.479 1418.41 229.389 1418.79 230.299L1421.21 236.443H1417.95L1415.75 230.603C1415.37 229.693 1414.99 229.313 1413.48 229.313H1408.7V236.443H1405.67ZM1413.71 226.735C1415.83 226.735 1417.19 225.445 1417.19 223.625C1417.19 222.032 1415.98 220.819 1414.01 220.819H1408.7V226.735H1413.71Z" fill="currentColor"/>
       </symbol>
     </defs>
   </svg>
@@ -613,9 +630,9 @@
   <nav class="nav">
     <div class="container nav__inner">
       <a href="../index.html" class="nav__logo" aria-label="Volver al inicio Brikka Hunting">
-        <svg viewBox="0 0 1433 379" aria-hidden="true"><use href="#brikka-logo"/></svg>
+        <svg viewBox="0 0 1433 370" aria-hidden="true"><use href="#brikka-logo"/></svg>
       </a>
-      <a href="../index.html#projects" class="nav__back">← Volver a proyectos</a>
+      <a href="../index.html#projects" class="nav__back" data-i18n="nav.back">← Volver a proyectos</a>
     </div>
   </nav>
 
@@ -623,14 +640,13 @@
   <section class="proj-hero">
     <div class="container">
       <div class="proj-hero__meta reveal">
-        <span class="eyebrow">Proyecto</span>
-        <span class="proj-hero__status proj-hero__status--study">En estudio</span>
+        <span class="eyebrow" data-i18n="p.eyebrow">Proyecto</span>
       </div>
-      <h1 class="display display-1 proj-hero__title reveal">Llombai</h1>
-      <p class="proj-hero__desc reveal">Reforma de inmueble en localización rural valenciana, actualmente en fase de estudio de viabilidad. Proyecto centrado en respetar el carácter rural del entorno y adaptar la vivienda a un uso contemporáneo.</p>
+      <h1 class="display display-1 proj-hero__title reveal">Castellón Centro</h1>
+      <p class="proj-hero__desc reveal" data-i18n="p.desc">Rehabilitación de un edificio de 12 plantas, actualmente en fase de estudio de viabilidad. El proyecto contempla la puesta en valor del inmueble mediante una intervención adaptada a las necesidades actuales.</p>
 
       <div class="proj-hero__media reveal">
-        <img class="proj-hero__img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&auto=format&fit=crop" alt="Llombai — vista principal" />
+        <img class="proj-hero__img" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&auto=format&fit=crop" alt="Castellón Centro — vista principal" />
       </div>
     </div>
   </section>
@@ -640,92 +656,40 @@
     <div class="container">
       <div class="info-strip__grid">
         <div class="info-item">
-          <div class="info-item__label">Ubicación</div>
-          <div class="info-item__value">Valencia, España</div>
+          <div class="info-item__label" data-i18n="info.location">Ubicación</div>
+          <div class="info-item__value">Castellón de la Plana</div>
         </div>
         <div class="info-item">
-          <div class="info-item__label">Tipología</div>
-          <div class="info-item__value">Reforma integral</div>
+          <div class="info-item__label" data-i18n="info.type">Tipología</div>
+          <div class="info-item__value" data-i18n="type.rehab">Rehabilitación</div>
         </div>
         <div class="info-item">
-          <div class="info-item__label">Año</div>
+          <div class="info-item__label" data-i18n="info.year">Año</div>
           <div class="info-item__value">2026</div>
         </div>
         <div class="info-item">
-          <div class="info-item__label">Estado</div>
-          <div class="info-item__value">En estudio</div>
+          <div class="info-item__label" data-i18n="info.floors">Plantas</div>
+          <div class="info-item__value">12</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ GALLERY PLACEHOLDER ============ -->
-  <section class="placeholder-section">
-    <div class="container">
-      <div class="placeholder-head">
-        <h2 class="placeholder-head__title">Imágenes del proyecto</h2>
-        <span class="placeholder-head__note">Renders & fotografía</span>
-      </div>
-      <div class="gallery">
-        <div class="gallery__hero">Imagen principal</div>
-        <div class="gallery__grid">
-          <div class="gallery__item">Render 01</div>
-          <div class="gallery__item">Render 02</div>
-          <div class="gallery__item">Render 03</div>
-          <div class="gallery__item">Render 04</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ 360 PLACEHOLDER ============ -->
-  <section class="placeholder-section" style="padding-top: 0;">
-    <div class="container">
-      <div class="placeholder-head">
-        <h2 class="placeholder-head__title">Recorrido 360°</h2>
-        <span class="placeholder-head__note">Vídeo inmersivo</span>
-      </div>
-      <div class="media-placeholder">
-        <svg class="media-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="12" r="9"/>
-          <path d="M3 12h18M12 3a13.5 13.5 0 0 1 0 18M12 3a13.5 13.5 0 0 0 0 18"/>
-        </svg>
-        <div class="media-placeholder__text">Vídeo 360° próximamente</div>
-        <div class="media-placeholder__hint">Aquí irá el recorrido virtual del proyecto. Embed de YouTube o reproductor 360° compatible con visores VR.</div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ============ PLANOS PLACEHOLDER ============ -->
-  <section class="placeholder-section" style="padding-top: 0;">
-    <div class="container">
-      <div class="placeholder-head">
-        <h2 class="placeholder-head__title">Planos y distribución</h2>
-        <span class="placeholder-head__note">Plantas & alzados</span>
-      </div>
-      <div class="media-placeholder">
-        <svg class="media-placeholder__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="3" y="3" width="18" height="18" rx="1"/>
-          <path d="M3 9h18M9 3v18M9 15h6M15 9v6"/>
-        </svg>
-        <div class="media-placeholder__text">Planos próximamente</div>
-        <div class="media-placeholder__hint">Aquí irán los planos de plantas, alzados y secciones del proyecto. Formato imagen o PDF descargable.</div>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ PRICE + CTA ============ -->
   <section class="price-cta">
     <div class="container">
       <div class="price-cta__grid">
         <div class="reveal">
-          <div class="price-cta__price">Próximamente</div>
-          <p class="price-cta__sub">Inscríbete a la lista de interesados</p>
+          <div class="price-cta__price" data-i18n="pc.price.soon">Próximamente</div>
+          <p class="price-cta__sub" data-i18n="pc.sub.study">En fase de estudio de viabilidad</p>
         </div>
         <div class="price-cta__cta reveal">
-          <h3 class="price-cta__title">¿Te interesa Llombai?</h3>
-          <p class="price-cta__desc">Inscríbete a la lista de espera. Serás de los primeros en recibir información cuando se abra la comercialización del proyecto.</p>
-          <a href="mailto:brikkahunting@gmail.com?subject=Consulta%20sobre%20proyecto%20Llombai" class="btn btn--light">
+          <h3 class="price-cta__title" data-i18n="pc.title.cc">¿Te interesa Castellón Centro?</h3>
+          <p class="price-cta__desc" data-i18n="pc.desc.waitlist">Inscríbete a la lista de espera. Serás de los primeros en recibir información cuando se abra la comercialización del proyecto.</p>
+          <a href="mailto:brikkahunting@gmail.com?subject=Consulta%20sobre%20proyecto%20Castellón Centro" class="btn btn--light" data-i18n="pc.btn.waitlist">
             APUNTARME A LA LISTA →
           </a>
         </div>
@@ -737,15 +701,15 @@
   <section class="others">
     <div class="container">
       <div class="others__head">
-        <h2 class="others__title">Otros proyectos</h2>
-        <a href="../index.html#projects" class="others__all">Ver todos →</a>
+        <h2 class="others__title" data-i18n="sec.others">Otros proyectos</h2>
+        <a href="../index.html#projects" class="others__all" data-i18n="sec.all">Ver todos →</a>
       </div>
       <div class="others__grid">
         
         <a class="other-card" href="tarancon.html">
           <div class="other-card__media">
             <img class="other-card__img" loading="lazy" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2000&auto=format&fit=crop" alt="Tarancón" />
-            <span class="other-card__status other-card__status--sold">Vendido</span>
+            <span class="other-card__status other-card__status--sold" data-i18n="status.done">Finalizado</span>
           </div>
           <div class="other-card__info">
             <h4 class="other-card__name">Tarancón</h4>
@@ -756,7 +720,7 @@
         <a class="other-card" href="vila-real.html">
           <div class="other-card__media">
             <img class="other-card__img" loading="lazy" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=2000&auto=format&fit=crop" alt="Vila-real" />
-            <span class="other-card__status other-card__status--sold">Vendido</span>
+            <span class="other-card__status other-card__status--sold" data-i18n="status.done">Finalizado</span>
           </div>
           <div class="other-card__info">
             <h4 class="other-card__name">Vila-real</h4>
@@ -767,7 +731,7 @@
         <a class="other-card" href="barceloneta.html">
           <div class="other-card__media">
             <img class="other-card__img" loading="lazy" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=2000&auto=format&fit=crop" alt="Barceloneta" />
-            <span class="other-card__status other-card__status--sold">Vendido</span>
+            <span class="other-card__status other-card__status--sold" data-i18n="status.done">Finalizado</span>
           </div>
           <div class="other-card__info">
             <h4 class="other-card__name">Barceloneta</h4>
@@ -783,23 +747,23 @@
     <div class="container">
       <div class="footer__top">
         <div class="footer__col footer__col--quote">
-          <p class="footer__quote">
+          <p class="footer__quote" data-i18n="footer.quote">
             Hogares con carácter.
           </p>
         </div>
 
         <div class="footer__col">
-          <h4 class="footer__heading">Navegación</h4>
+          <h4 class="footer__heading" data-i18n="footer.nav">Navegación</h4>
           <ul class="footer__list">
-            <li><a href="../index.html#about">Nosotros</a></li>
-            <li><a href="../index.html#services">Servicios</a></li>
-            <li><a href="../index.html#projects">Proyectos</a></li>
-            <li><a href="../index.html#contact">Contacto</a></li>
+            <li><a href="../index.html#about" data-i18n="nav.about">Nosotros</a></li>
+            <li><a href="../index.html#services" data-i18n="nav.services">Servicios</a></li>
+            <li><a href="../index.html#projects" data-i18n="nav.projects">Proyectos</a></li>
+            <li><a href="../index.html#contact" data-i18n="nav.contact">Contacto</a></li>
           </ul>
         </div>
 
         <div class="footer__col">
-          <h4 class="footer__heading">Ubicaciones</h4>
+          <h4 class="footer__heading" data-i18n="footer.loc">Ubicaciones</h4>
           <ul class="footer__list">
             <li>Barcelona</li>
             <li>Castellón</li>
@@ -809,7 +773,7 @@
         </div>
 
         <div class="footer__col">
-          <h4 class="footer__heading">Social</h4>
+          <h4 class="footer__heading" data-i18n="footer.social">Social</h4>
           <ul class="footer__list">
             <li><a href="https://www.instagram.com/brikkahunt/" target="_blank" rel="noopener">Instagram</a></li>
             <li><a href="https://wa.me/34614166241" target="_blank" rel="noopener">WhatsApp</a></li>
@@ -819,17 +783,34 @@
 
       <!-- Giant signature logo -->
       <div class="footer__signature" aria-hidden="true">
-        <svg class="footer__signature-svg" viewBox="0 0 1433 379"><use href="#brikka-logo"/></svg>
+        <svg class="footer__signature-svg" viewBox="0 0 1433 370"><use href="#brikka-logo"/></svg>
       </div>
 
       <div class="footer__base">
-        <span>© 2026 Brikka Hunting × Terra Nostra</span>
+        <span>© 2026 Terra Nostra × Brikka Hunt</span>
         <span>Barcelona, España</span>
       </div>
     </div>
   </footer>
 
   <!-- Reveal animations -->
+  <!-- Language switcher (floating, bottom-right) -->
+  <div class="lang-switch" data-open="false">
+    <button type="button" class="lang-switch__trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma / Language / Langue">
+      <svg class="lang-switch__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+      <span class="lang-switch__current">ES</span>
+      <svg class="lang-switch__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="lang-switch__menu" role="listbox">
+      <button type="button" data-lang="es" role="option">Español</button>
+      <button type="button" data-lang="en" role="option">English</button>
+      <button type="button" data-lang="fr" role="option">Français</button>
+    </div>
+  </div>
+
+  <script>window.I18N={"en": {"nav.back": "← Back to projects", "p.eyebrow": "Project", "nav.about": "About", "nav.services": "Services", "nav.projects": "Projects", "nav.contact": "Contact", "footer.quote": "Homes with character.", "footer.nav": "Navigation", "footer.loc": "Locations", "footer.social": "Social", "info.location": "Location", "info.type": "Typology", "info.year": "Year", "info.status": "Status", "info.floors": "Floors", "type.new": "New build", "type.reno": "Full renovation", "type.rehab": "Rehabilitation", "type.mixed": "New build & full renovation", "status.done": "Completed", "status.dev": "In progress", "pc.price.done": "Completed", "pc.price.avail": "Check availability", "pc.price.soon": "Coming soon", "pc.sub.done": "Project completed and delivered", "pc.sub.selling": "Homes now selling", "pc.sub.sellingNew": "New-build homes now selling", "pc.sub.study": "In the feasibility-study phase", "pc.title.buy": "Want to buy? We'll send you more information", "pc.title.cc": "Interested in Castellón Centro?", "pc.title.similar": "Interested in a similar project?", "pc.desc.buy": "Send us your enquiry and we'll send you all the project information: plans, terms and availability. We reply within 48 hours.", "pc.desc.similar": "We have other developments available. Tell us what you're looking for and we'll send you the projects that best fit.", "pc.desc.waitlist": "Join the waiting list. You'll be among the first to receive information when the project's sales open.", "pc.btn.info": "MORE INFORMATION →", "pc.btn.contact": "CONTACT →", "pc.btn.waitlist": "JOIN THE LIST →", "sec.images": "Project images", "sec.plans": "Plans & layout", "sec.others": "Other projects", "sec.all": "View all →", "note.renders": "Renders", "note.photos": "Photography", "note.videoRenders": "Video & renders", "note.floorsBPS": "Ground · first · second floor", "note.planElevSec": "Floor plan · elevations · sections", "note.unitsABC": "Units A · B · C", "mp.text": "Images coming soon", "mp.hint": "We're preparing the project renders. They'll be available very soon.", "p.desc": "Rehabilitation of a 12-storey building, currently in the feasibility-study phase. The project aims to enhance the property through an intervention tailored to current needs."}, "fr": {"nav.back": "← Retour aux projets", "p.eyebrow": "Projet", "nav.about": "À propos", "nav.services": "Services", "nav.projects": "Projets", "nav.contact": "Contact", "footer.quote": "Des foyers de caractère.", "footer.nav": "Navigation", "footer.loc": "Emplacements", "footer.social": "Réseaux", "info.location": "Emplacement", "info.type": "Typologie", "info.year": "Année", "info.status": "Statut", "info.floors": "Étages", "type.new": "Logement neuf", "type.reno": "Rénovation intégrale", "type.rehab": "Réhabilitation", "type.mixed": "Neuf & rénovation intégrale", "status.done": "Terminé", "status.dev": "En cours", "pc.price.done": "Terminé", "pc.price.avail": "Disponibilité sur demande", "pc.price.soon": "Prochainement", "pc.sub.done": "Projet terminé et livré", "pc.sub.selling": "Logements en commercialisation", "pc.sub.sellingNew": "Logements neufs en commercialisation", "pc.sub.study": "En phase d'étude de faisabilité", "pc.title.buy": "Vous voulez acheter ? Nous vous envoyons plus d'informations", "pc.title.cc": "Castellón Centro vous intéresse ?", "pc.title.similar": "Un projet similaire vous intéresse ?", "pc.desc.buy": "Envoyez-nous votre demande et nous vous transmettrons toute l'information du projet : plans, conditions et disponibilité. Nous répondons sous 48 heures.", "pc.desc.similar": "Nous avons d'autres projets disponibles. Dites-nous ce que vous cherchez et nous vous enverrons les projets les plus adaptés.", "pc.desc.waitlist": "Inscrivez-vous sur la liste d'attente. Vous serez parmi les premiers informés à l'ouverture de la commercialisation.", "pc.btn.info": "PLUS D'INFORMATIONS →", "pc.btn.contact": "NOUS CONTACTER →", "pc.btn.waitlist": "REJOINDRE LA LISTE →", "sec.images": "Images du projet", "sec.plans": "Plans & distribution", "sec.others": "Autres projets", "sec.all": "Voir tout →", "note.renders": "Rendus", "note.photos": "Photographie", "note.videoRenders": "Vidéo & rendus", "note.floorsBPS": "Rez-de-chaussée · premier · deuxième", "note.planElevSec": "Plan · élévations · coupes", "note.unitsABC": "Logements A · B · C", "mp.text": "Images à venir", "mp.hint": "Nous préparons les rendus du projet. Ils seront disponibles très bientôt.", "p.desc": "Réhabilitation d'un immeuble de 12 étages, actuellement en phase d'étude de faisabilité. Le projet vise à valoriser le bien grâce à une intervention adaptée aux besoins actuels."}};</script>
+  <script src="../assets/i18n.js"></script>
+
   <script>
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduceMotion && 'IntersectionObserver' in window) {
